@@ -1,0 +1,50 @@
+/* reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+/* var */
+:root{
+    --header-font-size: 32px;
+    --base-font-family: 'yuyu';
+}
+@font-face {
+    font-family: 'yuyu';
+    src: url('./asset/yuyushort-regular.woff2') format('woff2'), url('./asset/yuyushort-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+    background: url(./asset/landing_btg.jpg) fixed center / cover no-repeat;
+}
+
+nav {
+    button{
+        font-size: var(--header-font-size);
+        font-family: var(--base-font-family);
+    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15%;
+}
+
+#content.about{
+
+}
+
+#content.contact{
+
+}
+
+#content.home{
+
+}
