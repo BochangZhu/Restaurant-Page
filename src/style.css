@@ -9,8 +9,12 @@
 
 /* var */
 :root{
-    --header-font-size: 32px;
+    --header-font-size: 48px;
     --base-font-family: 'yuyu';
+    --title-font-size: 82px;
+    --para-font-size: 24px;
+    --neon-shadow: 0 0 15px #35dfe8, 0 0 35px #0008ff,  0 0 66px #00ffbb, 0 0 8px #ff0055;
+    --neon-title: 0 0 15px #f5ac00f0, 0 0 35px #34ed0a,  0 0 55px #ee00ff, 0 0 5px #00ffff;
 }
 @font-face {
     font-family: 'yuyu';
@@ -20,17 +24,55 @@
 }
 
 body {
+    row-gap: 32px;
+    max-width: 100%;
+    padding: 0px 24px;
+    user-select: none;
     width: 100vw;
     display: grid;
-    grid-template-rows: 1fr 6fr;
+    grid-template-rows: 15vh 125vh;
     background: url(./asset/landing_btg.jpg) fixed center / cover no-repeat;
+}
+
+header {
+    padding: 12px 0;
+    align-self: center;
+    position: relative;
+    &::after{
+        position: absolute;
+        bottom: -10px;
+        width: 100vw;
+        height: 6px;
+        background: linear-gradient(to right, #3300fc66, #95008a44, #eb000066);
+        content: "";
+    }
 }
 
 nav {
     button{
+        border: none;   
+        color: rgb(77, 206, 161);
         font-size: var(--header-font-size);
         font-family: var(--base-font-family);
+        background: linear-gradient(to right, #1565c055, #b92b2755);
+        border-radius: 20px;
+        box-shadow: rgba(13, 195, 89, 0.88) 0px 3px 8px;
+        transition: transform 0.08s ease-in-out, box-shadow 0.08s ease-in-out;
+        &:hover {
+            box-shadow: rgba(200, 21, 197, 0.88) 0px 3px 5px;
+        }
+        &:active {
+            transform: scale(0.93);
+            box-shadow: rgba(200, 21, 197, 0.88) 0px 3px 5px;
+        }
+        &.selected {
+            color: rgb(45, 0, 20);
+            font-weight: bold;
+            box-shadow: rgba(200, 21, 197, 0.88) 0px 3px 5px;
+        }
     }
+
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,5 +88,35 @@ nav {
 }
 
 #content.home{
+    .title{
+        justify-self: end;
+        font-size: var(--title-font-size);
+        font-family: var(--base-font-family);
+        color: rgba(255, 215, 69, 0.66);
+        text-shadow: var(--neon-title);
+        
+    }
+    .svg,.img{
+        background-color: rgb(250, 235, 215, 0.5);
+        width: 75%;
+        height: 75%;
+    }
+    p{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: var(--para-font-size);
+        color: whitesmoke;
+        text-shadow: var(--neon-shadow);
+        &.special{
+            justify-self: start;
+            align-self: end;
+            margin-left: 20px;
+            font-size: 48px;
+            font-style: italic;
+        }
+    }
+    display: grid;
+    grid-template: 1fr 5fr 0.5fr 5fr/ repeat(2, 1fr);
+    place-items: center;
+    column-gap: 5%;
 
 }
