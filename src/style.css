@@ -7,6 +7,9 @@
   margin: 0;
 }
 
+img, svg {
+    max-width: 100%; 
+}
 /* var */
 :root{
     --header-font-size: 48px;
@@ -24,13 +27,12 @@
 }
 
 body {
+    width: 100%;
     row-gap: 32px;
-    max-width: 100%;
-    padding: 0px 24px;
+    padding: 12px 24px;
     user-select: none;
-    width: 100vw;
     display: grid;
-    grid-template-rows: 15vh 125vh;
+    grid-template-rows: 15vh 200vh;
     background: url(./asset/landing_btg.jpg) fixed center / cover no-repeat;
 }
 
@@ -41,7 +43,7 @@ header {
     &::after{
         position: absolute;
         bottom: -10px;
-        width: 100vw;
+        width: 100%;
         height: 6px;
         background: linear-gradient(to right, #3300fc66, #95008a44, #eb000066);
         content: "";
@@ -79,6 +81,12 @@ nav {
     gap: 15%;
 }
 
+#content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 #content.about{
 
 }
@@ -86,9 +94,33 @@ nav {
 #content.contact{
 
 }
-
-#content.home{
+#content > #home{
+    min-height: 0;
+    flex:1;
+    &>*:nth-child(5) {
+        justify-self: end;
+    }
+    img:nth-child(6) {
+        min-width: 0;
+        min-height: 0;
+        width: 20%;
+        height: 100%;
+        object-fit: cover;
+    }
+    img {
+        min-width: 0;
+        min-height: 0;
+        border-radius: 25px;
+        width: 55%;
+        height: 100%;
+        object-fit: cover;
+    }
+    p{
+        line-height: 2.5;
+    }
+    min-height: 0;
     .title{
+        margin-bottom: 30px;
         justify-self: end;
         font-size: var(--title-font-size);
         font-family: var(--base-font-family);
@@ -115,8 +147,9 @@ nav {
         }
     }
     display: grid;
-    grid-template: 1fr 5fr 0.5fr 5fr/ repeat(2, 1fr);
+    grid-template: repeat(4, minmax(0, 1fr)) / repeat(2, 1fr);
     place-items: center;
     column-gap: 5%;
+    row-gap: 5%;
 
 }
