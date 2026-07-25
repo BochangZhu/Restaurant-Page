@@ -16,8 +16,14 @@ img, svg {
     --base-font-family: 'yuyu';
     --title-font-size: 82px;
     --para-font-size: 24px;
-    --neon-shadow: 0 0 15px #35dfe8, 0 0 35px #0008ff,  0 0 66px #00ffbb, 0 0 8px #ff0055;
-    --neon-title: 0 0 15px #f5ac00f0, 0 0 35px #34ed0a,  0 0 55px #ee00ff, 0 0 5px #00ffff;
+    --description-font: 'Times New Roman', Times, serif;
+
+    --neon-shadow: 0 0 15px #35dfe8, 0 0 35px #0008ff,  0 0 66px #00ffbb55, 0 0 8px #ff0055;
+    --neon-title: 0 0 15px #f5ac00f0, 0 0 35px #34ed0a,  0 0 55px #ee00ff, 0 0 5px #00ffff33;
+
+
+    --title-color: rgba(255, 215, 69, 0.66);
+    --para-color: whitesmoke;
 }
 @font-face {
     font-family: 'yuyu';
@@ -91,9 +97,62 @@ nav {
 
 }
 
-#content.contact{
+#content > #menu{
+    img {
+        width: 50%;
+        height: 100%;
+        min-width: 0;
+        min-height: 0;
+        object-fit: cover;
+        border-radius: 25px;
+    }
+
+    min-height: 0;
+    flex: 1;
+    display: grid;
+    grid-template: repeat(3, minmax(0, 1fr)) / 5fr 5fr;
+    place-items: center;
+    row-gap: 24px;
+    overflow-y: auto;
+
+    &>.dish {
+        overflow-y: auto;
+        display: grid;
+        grid-template-rows: 4.5fr 6fr;
+        .top {
+            display: grid;
+            grid-template: 6fr 4fr / 6fr 4fr;
+            justify-items: start;
+            align-items: start;
+            text-shadow: var(--neon-title);
+            color: var(--title-color);
+            .name{
+                grid-row: span 2;
+                font-size: 66px;
+            }
+
+            .price {
+                grid-area: 2 / 2 / 3 / 3;
+                justify-self: center;
+                position: relative;
+            }
+
+
+            font-family: var(--base-font-family);
+            font-size: 45px;
+        }
+        .description {
+            place-self: center;
+            font-family: var(--description-font);
+            font-size: var(--para-font-size);
+            color: var(--para-color);
+            text-shadow: var(--neon-shadow);
+        }
+    }
+
 
 }
+
 #content > #home{
     min-height: 0;
     flex:1;
@@ -103,9 +162,9 @@ nav {
     img:nth-child(6) {
         min-width: 0;
         min-height: 0;
-        width: 20%;
+        width: 35%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
     img {
         min-width: 0;
@@ -124,7 +183,7 @@ nav {
         justify-self: end;
         font-size: var(--title-font-size);
         font-family: var(--base-font-family);
-        color: rgba(255, 215, 69, 0.66);
+        color: var(--title-color, whitesmoke);
         text-shadow: var(--neon-title);
         
     }
@@ -134,9 +193,9 @@ nav {
         height: 75%;
     }
     p{
-        font-family: 'Times New Roman', Times, serif;
+        font-family: var(--description-font);
         font-size: var(--para-font-size);
-        color: whitesmoke;
+        color: var(--para-color, whitesmoke);
         text-shadow: var(--neon-shadow);
         &.special{
             justify-self: start;
@@ -151,5 +210,4 @@ nav {
     place-items: center;
     column-gap: 5%;
     row-gap: 5%;
-
 }
