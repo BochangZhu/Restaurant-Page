@@ -1,6 +1,7 @@
 
 const wrapper = document.createElement("div");
 wrapper.id = "about";
+wrapper.className = "temp";
 
 const btn = document.createElement("button");
 btn.textContent = "Schedule";

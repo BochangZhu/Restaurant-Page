@@ -11,43 +11,42 @@ const text4 = "Bring your friends and redeem the new year coupon, with 3X return
 const text5 = "🏆 Ranked #3 Globally This Month";
 const text6 = "⭐ 4.98 / 5.00 Network Rating (From 4.2M+ User)";
 
+const homeWrap = document.createElement("div");
+homeWrap.id = "home";
+homeWrap.className = "temp";
 // string arr
 const strArr = [text1, text2, displayURL, text3, text4, couponURL, customerURL, text5, text6];
 
+// create neccesary elements
+strArr.forEach((text, index) => {
+    if (index == 2 || index == 5 || index == 6) {
+        const temp = document.createElement("img");
+        temp.src = text;
+        homeWrap.appendChild(temp);
+    }
+    else if (index == 7) {
+        const t6 = strArr[8];
+        const temp = document.createElement("div");
+        temp.className = "group";
+        const p1 = document.createElement("p");
+        p1.textContent = text;
+        const p2 = document.createElement("p");
+        p2.textContent = t6;
+        temp.append(p1, p2);
+        homeWrap.appendChild(temp);
+    }
+    else if (index == 8) {
+        
+    }
+    else{
+        const temp = document.createElement("p");
+        if (index == 0) temp.className = "title";
+        else if (index == 1) temp.className = "special";
+        temp.textContent = text;
+        homeWrap.appendChild(temp);
+    }
+});
+
+
 // export function
-export default () => {
-    // create neccesary elements
-    const homeWrap = document.createElement("div");
-    homeWrap.id = "home";
-
-    strArr.forEach((text, index) => {
-        if (index == 2 || index == 5 || index == 6) {
-            const temp = document.createElement("img");
-            temp.src = text;
-            homeWrap.appendChild(temp);
-        }
-        else if (index == 7) {
-            const t6 = strArr[8];
-            const temp = document.createElement("div");
-            temp.className = "group";
-            const p1 = document.createElement("p");
-            p1.textContent = text;
-            const p2 = document.createElement("p");
-            p2.textContent = t6;
-            temp.append(p1, p2);
-            homeWrap.appendChild(temp);
-        }
-        else if (index == 8) {
-            
-        }
-        else{
-            const temp = document.createElement("p");
-            if (index == 0) temp.className = "title";
-            else if (index == 1) temp.className = "special";
-            temp.textContent = text;
-            homeWrap.appendChild(temp);
-        }
-    });
-
-    return homeWrap;
-};
+export default () => homeWrap;

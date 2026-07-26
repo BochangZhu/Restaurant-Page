@@ -5,6 +5,7 @@ import dish3 from "./asset/menu3.png";
 
 const wrapper = document.createElement("div");
 wrapper.id = "menu";
+wrapper.className = "temp";
 
 const textArr = [
     dish1,
@@ -23,41 +24,40 @@ const textArr = [
 
 let i = 0;
 
-export default () => {
-    while (i < textArr.length) {
-        if (i == 1 || i == 4 || i == 9) {
-            const dish = document.createElement("div");
-            dish.className = "dish";
-            const top = document.createElement("div");
-            top.className = "top";
 
-            const name = document.createElement("div");
-            name.className = "name";
-            name.textContent = textArr[i];
+while (i < textArr.length) {
+    if (i == 1 || i == 4 || i == 9) {
+        const dish = document.createElement("div");
+        dish.className = "dish";
+        const top = document.createElement("div");
+        top.className = "top";
 
-            const price = document.createElement("div");
-            price.className = "price";
-            price.textContent = textArr[i+1];
+        const name = document.createElement("div");
+        name.className = "name";
+        name.textContent = textArr[i];
 
-            const des = document.createElement("div");
-            des.className = "description";
-            des.textContent = textArr[i+2];
+        const price = document.createElement("div");
+        price.className = "price";
+        price.textContent = textArr[i+1];
 
-            top.append(name, price);
-            dish.append(top, des);
+        const des = document.createElement("div");
+        des.className = "description";
+        des.textContent = textArr[i+2];
 
-            wrapper.appendChild(dish);
-            i += 3;
-        }
-        else {
-            const img = document.createElement("img");
-            img.src = textArr[i];
-            wrapper.appendChild(img);
-            i++;
-        }
+        top.append(name, price);
+        dish.append(top, des);
+
+        wrapper.appendChild(dish);
+        i += 3;
     }
+    else {
+        const img = document.createElement("img");
+        img.src = textArr[i];
+        wrapper.appendChild(img);
+        i++;
+    }
+}
 
-    return wrapper;
-};
+export default () => wrapper;
 
 
