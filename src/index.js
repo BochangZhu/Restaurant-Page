@@ -3,7 +3,8 @@ import "./style.css";
 // default import from hometUtil
 import homeFunc from "./homeUtil.js";
 import menuFunc from "./menuUtil.js";
+import aboutFunc from "./aboutUtil.js";
 
 const btns = document.querySelectorAll("button");
 
-document.querySelector("#content").appendChild(menuFunc());
+// document.querySelector("#content").appendChild(aboutFunc());

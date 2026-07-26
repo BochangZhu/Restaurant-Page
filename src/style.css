@@ -17,6 +17,10 @@ img, svg {
     --title-font-size: 82px;
     --para-font-size: 24px;
     --description-font: 'Times New Roman', Times, serif;
+    --extra-emph-size: 78px;
+
+    --about-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --about-mask-color: #14142a99;
 
     --neon-shadow: 0 0 15px #35dfe8, 0 0 35px #0008ff,  0 0 66px #00ffbb55, 0 0 8px #ff0055;
     --neon-title: 0 0 15px #f5ac00f0, 0 0 35px #34ed0a,  0 0 55px #ee00ff, 0 0 5px #00ffff33;
@@ -93,7 +97,93 @@ nav {
     flex-direction: column;
 }
 
-#content.about{
+#content > #about{
+    height: 100%;
+    font-family: var(--about-font-family);
+    display: grid;
+    grid-template-rows: 1fr 2fr 1fr;
+    row-gap: 5%;
+
+    .header{
+        color: var(--para-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #14142a99;
+        &>div:last-child{            
+            font-family: var(--base-font-family);
+            font-size: 32px;
+        }
+        &>div:first-child{
+            font-size: var(--extra-emph-size);
+        }
+    }
+
+
+    .story{
+        display: grid;
+        grid-template-rows: repeat(2, 1fr) 3fr;
+        place-items: center;
+        font-family: var(--base-font-family);
+        color: var(--para-color);
+        background-color: var(--about-mask-color);
+        .italic{
+            align-self: start;
+            font-style: italic;
+            font-size: 32px;
+        }
+        .para {
+            width: 50%;
+            text-align: center;
+            font-family: var(--about-font-family);
+            font-size: 26px;
+            line-height: 1.8;
+        }
+
+        &>div:first-child{
+            font-family: var(--about-font-family);
+            font-size:var(--extra-emph-size);
+        }
+    }
+
+    .action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5%;
+        background-color: var(--about-mask-color);
+        .para{
+            color: var(--para-color);
+            width: 50%;
+            text-align: center;
+            font-size: var(--extra-emph-size);
+            font-size: var(--header-font-size);
+            line-height: 1.6;
+        }
+
+        button{
+            color: rgb(54, 8, 69);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            font-size: 24px;
+            border-radius: 30px;
+            width: 20%;
+            height: 20%;
+            padding: 24px;
+            background: linear-gradient(to right, #1e90ff55, #f9c94255, #ff1e5655);
+            transition: transform 0.05s ease-in-out; 
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
+            &:active {
+                transform: translateY(5px);
+            }
+        }
+
+    }
+
 
 }
 
