@@ -2,9 +2,6 @@
 
 A synthwave-themed restaurant landing page — a **practice project from **The Odin Project** curriculum.
 
-## Live Preview
-https://bochangzhu.github.io/Restaurant-Page/
-
 ### 1. Webpack Configuration
 Got hands-on with configuring Webpack from scratch.
 - **Module rules** to handle different asset types — images (`.png`, `.svg`), fonts (`.woff`/`.woff2`), and CSS — so they can be `import`-ed directly in JS (see `homeUtil.js`, `style.css`).
