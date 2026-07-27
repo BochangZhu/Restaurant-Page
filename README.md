@@ -22,3 +22,7 @@ vanilla JS to control page state:
 ## Stack
 
 Vanilla JavaScript, CSS Grid, Webpack.
+
+## Deployment
+
+Use git subtree command to push the built dist contents to the gh-pages branch.
